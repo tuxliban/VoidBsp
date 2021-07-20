@@ -16,18 +16,17 @@ pkill tint2
 tint2 &
 sleep 0.1 && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" $(xdo id -n tint2)
 
-#Connman GUI(network)
-pkill connman-gtk
-connman-gtk &
+#Nm-applet GUI(network)
+pkill nm-applet
+nm-applet &
 
 #Volume applet
 pkill volumeicon
 volumeicon &
 
-
 #picom
 pkill picom
-picom -f -D 3 &
+picom -f -D 2 &
 
 #Numkey
 numlockx on
@@ -39,8 +38,9 @@ xsetroot -cursor_name left_ptr
 setxkbmap -layout us -variant intl
 
 #Polkit
-pkill /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+pkill /usr/libexec/polkit-mate-authentication-agent-1
+/usr/libexec/polkit-mate-authentication-agent-1 &
+
 
 #Notify
 pkill xfce4-notifyd

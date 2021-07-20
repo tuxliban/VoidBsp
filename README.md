@@ -17,7 +17,7 @@ Panel: **Tint2**
 
 Gestor de ventanas: **BSPWM** 
 
-Hokeys Daemon: **Sxhkd** [(Ver atajos de Sxhkd)](https://gitlab.com/d33vliter/voidbsp-/blob/master/cfg/config/sxhkd/sxhkdrc)
+Hokeys Daemon: **Sxhkd** [(Ver atajos de Sxhkd)](https://gitlab.com/d33vliter/voidbsp-/blob/master/config/sxhkd/sxhkdrc)
 
 Navegador: **Firefox**
 
@@ -25,9 +25,9 @@ Gestor de Archivos: **PCManFM**
 
 Extractor de Archivos: **File-Roller**
 
-Network Manager: **Connman-gtk**
+Network Manager: **Nm-applet**
 
-Terminal: **Sakura**
+Terminal: **LXterminal**
 
 Editor de Textos: **Leafpad**
 

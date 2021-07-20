@@ -27,16 +27,16 @@ fi
 
 
 #base 
-$il at-spi2-core base-devel p7zip xdg-user-dirs ntp xorg xinit gvfs ntfs-3g
+$il at-spi2-core base-devel p7zip xdg-user-dirs xorg xinit gvfs ntfs-3g
 
 #bspwm
-$il bspwm sxhkd tint2 dmenu rofi scrot nitrogen xsetroot xdo numlockx \
-	mate-polkit dbus libnotify xfce4-notifyd sakura numlockx pcmanfm
+$il bspwm sxhkd tint2 dmenu rofi scrot nitrogen xsetroot xdo numlockx NetworkManager \
+	mate-polkit dbus libnotify xfce4-notifyd lxterminal numlockx network-manager-applet 
 
 
 #programas adicionales //audio // tipografia // etc
 
-$il volumeicon pulsemixer pipewire neofetch picom \
+$il volumeicon pulsemixer pipewire neofetch picom pcmanfm \
 	lxappearance mpv arandr leafpad file-roller feh firefox
 
 
@@ -45,6 +45,12 @@ echo "Aplicando configuraciones..."
 sleep 2s
 
 
+#iniciar servicios
+$s ln -s /etc/sv/dbus /var/service
+$s ln -s /etc/sv/NetworkManager /var/service
+$s ln -s /etc/sv/elogind /var/service
+$s rm -r /var/service/polkitd
+
 #config
 xdg-user-dirs-update
 
@@ -52,19 +58,19 @@ echo -e "pipewire &
 \npipewire-pulse &
 \nexec dbus-launch --exit-with-session bspwm" > $HOME/.xinitrc
 
-cp -r cfg/config/* $HOME/.config/
+cp -r config/* $HOME/.config/
 
 #Carpeta donde se guardaran las capturas de pantalla
 mkdir $HOME/captures
 
-$s cp -r cfg/cfgusr/slate.rasi /usr/share/rofi/themes/
+$s cp -r cfgusr/slate.rasi /usr/share/rofi/themes/
 $s rm -r /usr/share/wall
 $s mkdir /usr/share/wall
-$s cp -r cfg/cfgusr/2108056.png /usr/share/wall/
+$s cp -r cfgusr/2108056.png /usr/share/wall/
 
 ###
 clear
-echo "Instalacion de ArtixBsp Completada"
+echo "Instalacion de VoidBsp Completada"
 echo "Pulse cualquiera tecla para continuar..."
 read tecla
 clear
