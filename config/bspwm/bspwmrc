@@ -1,0 +1,71 @@
+#!/bin/sh
+
+###########
+#AUTOSTART#
+###########
+
+#Monitor
+xrandr --dpi 96
+
+#wallpaper
+pkill nitrogen
+nitrogen --restore &
+
+#Panel
+pkill tint2
+tint2 &
+sleep 0.1 && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" $(xdo id -n tint2)
+
+#Connman GUI(network)
+pkill connman-gtk
+connman-gtk &
+
+#Volume applet
+pkill volumeicon
+volumeicon &
+
+
+#picom
+pkill picom
+picom -f -D 3 &
+
+#Numkey
+numlockx on
+
+#Cursor
+xsetroot -cursor_name left_ptr
+
+#Keyboard
+setxkbmap -layout us -variant intl
+
+#Polkit
+pkill /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+#Notify
+pkill xfce4-notifyd
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
+
+#Keybind
+pkill sxhkd
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+
+bspc monitor -d I II III IV
+bspc config border_width         1
+bspc config window_gap          12
+
+#colores bordes
+bspc config normal_border_color "#000000"
+bspc config focused_border_color "#ffffff"
+
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off

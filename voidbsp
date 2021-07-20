@@ -1,0 +1,70 @@
+#!/bin/bash
+
+#por d33vliter
+######Variables#####
+s="sudo"
+il="sudo xbps-install -y"
+#####################
+clear
+
+echo "|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|"
+echo "| VoidBSP Installer |"
+echo "|___________________|"
+echo ""
+echo ""
+sleep 2s
+echo "Introduzca contraseña para continuar"
+sudo -k
+if sudo true; then
+	clear
+	echo "Iniciando Instalación..."
+	sleep 2s
+else
+	clear
+	echo "Debe introduccir contraseña para continuar"
+	exit 1
+fi
+
+
+#base 
+$il at-spi2-core base-devel p7zip xdg-user-dirs ntp xorg xinit gvfs ntfs-3g
+
+#bspwm
+$il bspwm sxhkd tint2 dmenu rofi scrot nitrogen xsetroot xdo numlockx \
+	mate-polkit dbus libnotify xfce4-notifyd sakura numlockx pcmanfm
+
+
+#programas adicionales //audio // tipografia // etc
+
+$il volumeicon pulsemixer pipewire neofetch picom \
+	lxappearance mpv arandr leafpad file-roller feh firefox
+
+
+clear
+echo "Aplicando configuraciones..."
+sleep 2s
+
+
+#config
+xdg-user-dirs-update
+
+echo -e "pipewire &
+\npipewire-pulse &
+\nexec dbus-launch --exit-with-session bspwm" > $HOME/.xinitrc
+
+cp -r cfg/config/* $HOME/.config/
+
+#Carpeta donde se guardaran las capturas de pantalla
+mkdir $HOME/captures
+
+$s cp -r cfg/cfgusr/slate.rasi /usr/share/rofi/themes/
+$s rm -r /usr/share/wall
+$s mkdir /usr/share/wall
+$s cp -r cfg/cfgusr/2108056.png /usr/share/wall/
+
+###
+clear
+echo "Instalacion de ArtixBsp Completada"
+echo "Pulse cualquiera tecla para continuar..."
+read tecla
+clear
