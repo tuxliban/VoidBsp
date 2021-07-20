@@ -3,10 +3,13 @@
 **Script de BSPWM listo para su uso en Void Linux**
 
 ---
+[![2021-07-20-13-36-50-screenshot.png](https://i.postimg.cc/SxDXspcr/2021-07-20-13-36-50-screenshot.png)](https://postimg.cc/9DwX8K8R)
+
+---
 
 Recuerda volverlo ejecutable con `chmod +x voidbsp`
 
-Ejecutalo con: `./artixbsp`
+Ejecutalo con: `./voidbsp`
 
 
 ---
