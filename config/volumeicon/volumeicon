@@ -7,7 +7,7 @@ notification_type=0
 
 [StatusIcon]
 stepsize=5
-onclick=sakura -e 'pulsemixer'
+onclick=lxterminal -e 'pulsemixer'
 theme=Default
 use_panel_specific_icons=false
 lmb_slider=true
