@@ -30,7 +30,7 @@ Extractor de Archivos: **File-Roller**
 
 Network Manager: **Nm-applet**
 
-Terminal: **LXterminal**
+Terminal: **Sakura**
 
 Editor de Textos: **Leafpad**
 
