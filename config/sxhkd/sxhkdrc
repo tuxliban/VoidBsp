@@ -15,7 +15,7 @@ super + Escape
 
 ##Terminal
 super + Return
-	lxterminal
+	sakura
 
 
 ##Capturar pantalla
@@ -25,7 +25,7 @@ Print
 
 ##Lanzador de Programas // dmenu_run
 super + d 
-	rofi -show drun -lines 3 -width 30
+	rofi -show drun
 
 #######################################
 ###### SALIR//APAGAR//REINICIAR #######

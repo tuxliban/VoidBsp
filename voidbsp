@@ -31,13 +31,13 @@ $il at-spi2-core base-devel p7zip xdg-user-dirs xorg xinit gvfs ntfs-3g
 
 #bspwm
 $il bspwm sxhkd tint2 dmenu rofi scrot nitrogen xsetroot xdo numlockx NetworkManager \
-	mate-polkit dbus libnotify xfce4-notifyd lxterminal numlockx network-manager-applet 
+	mate-polkit dbus libnotify xfce4-notifyd sakura numlockx network-manager-applet 
 
 
 #programas adicionales //audio // tipografia // etc
 
 $il volumeicon pulsemixer pipewire neofetch picom pcmanfm \
-	lxappearance mpv arandr leafpad file-roller feh firefox
+	lxappearance mpv arandr leafpad file-roller viewnior firefox
 
 
 clear
@@ -56,6 +56,7 @@ xdg-user-dirs-update
 
 echo -e "pipewire &
 \npipewire-pulse &
+\neval $(/usr/bin/gnome-keyring-daemon --start)
 \nexec dbus-launch --exit-with-session bspwm" > $HOME/.xinitrc
 
 cp -r config/* $HOME/.config/
