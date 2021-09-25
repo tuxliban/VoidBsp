@@ -54,10 +54,10 @@ $s rm -r /var/service/polkitd
 #config
 xdg-user-dirs-update
 
-echo -e "pipewire &
+echo -e 'pipewire &
 \npipewire-pulse &
 \neval $(/usr/bin/gnome-keyring-daemon --start)
-\nexec dbus-launch --exit-with-session bspwm" > $HOME/.xinitrc
+\nexec dbus-launch --exit-with-session bspwm' > $HOME/.xinitrc
 
 cp -r config/* $HOME/.config/
 
