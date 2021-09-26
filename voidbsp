@@ -27,7 +27,7 @@ fi
 
 
 #base 
-$il at-spi2-core base-devel p7zip xdg-user-dirs xorg xinit gvfs ntfs-3g
+$il at-spi2-core base-devel p7zip xdg-user-dirs xorg xinit gvfs ntfs-3g elogind
 
 #bspwm
 $il bspwm sxhkd tint2 dmenu rofi scrot nitrogen xsetroot xdo numlockx NetworkManager \
