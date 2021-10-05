@@ -56,8 +56,8 @@ xdg-user-dirs-update
 
 echo -e 'pipewire &
 \npipewire-pulse &
-\nexec dbus-launch --exit-with-session bspwm 
-\neval $(/usr/bin/gnome-keyring-daemon --start)'> $HOME/.xinitrc
+\neval $(/usr/bin/gnome-keyring-daemon --start)
+\nexec dbus-launch --exit-with-session bspwm'> $HOME/.xinitrc 
 
 
 cp -r config/* $HOME/.config/
