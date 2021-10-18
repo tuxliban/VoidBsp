@@ -54,16 +54,17 @@ $s rm -r /var/service/polkitd
 #config
 xdg-user-dirs-update
 
-echo -e 'pipewire &
-\npipewire-pulse &
-\neval $(/usr/bin/gnome-keyring-daemon --start)
-\nexec dbus-launch --exit-with-session bspwm'> $HOME/.xinitrc 
+cat << EOF > "$HOME"/.xinirc
+pipewire &
+pipewire-pulse &
+eval $(/usr/bin/gnome-keyring-daemon --start)
+exec dbus-launch --exit-with-session bspwm
+EOF
 
-
-cp -r config/* $HOME/.config/
+cp -r config/* "$HOME"/.config/
 
 #Carpeta donde se guardaran las capturas de pantalla
-mkdir $HOME/captures
+mkdir "$HOME"/captures
 
 $s cp -r cfgusr/slate.rasi /usr/share/rofi/themes/
 $s rm -r /usr/share/wall
@@ -74,5 +75,5 @@ $s cp -r cfgusr/2108056.png /usr/share/wall/
 clear
 echo "Instalacion de VoidBsp Completada"
 echo "Pulse cualquiera tecla para continuar..."
-read tecla
+read -r tecla
 clear
